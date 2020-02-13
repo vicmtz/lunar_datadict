@@ -13,6 +13,9 @@ public class ColumnaBean extends BaseBean {
 	private String autoIncrement; 
 	private String defaultVal; 
 	private String comentario;
+	private String dato;
+	private String longitud;
+	
 	public String getColumna() {
 		return columna;
 	}
@@ -66,6 +69,18 @@ public class ColumnaBean extends BaseBean {
 	}
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
+	}
+	public String getDato() {
+		return dato;
+	}
+	public void setDato(String dato) {
+		this.dato = dato;
+	}
+	public String getLongitud() {
+		return longitud;
+	}
+	public void setLongitud(String longitud) {
+		this.longitud = longitud;
 	}
 	
 	

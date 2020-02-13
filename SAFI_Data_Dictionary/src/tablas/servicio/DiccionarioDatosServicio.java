@@ -83,12 +83,12 @@ public class DiccionarioDatosServicio extends BaseServicio{
 			XSSFCellStyle estiloNegIzq10 = libro.createCellStyle();
 			estiloNegIzq10.setFont(centradoNegrita10);
 			estiloNegIzq10.setAlignment((short)XSSFCellStyle.ALIGN_LEFT);
-			estiloNegIzq10.setFillForegroundColor(new XSSFColor( new Color(243, 249, 251)));
+			estiloNegIzq10.setFillForegroundColor(new XSSFColor( new Color(206, 238, 252)));
 			estiloNegIzq10.setFillPattern(CellStyle.SOLID_FOREGROUND);
 			
 			XSSFCellStyle estiloNegIzq10NB = libro.createCellStyle();
 			estiloNegIzq10NB.setAlignment((short)XSSFCellStyle.ALIGN_LEFT);
-			estiloNegIzq10NB.setFillForegroundColor(new XSSFColor( new Color(243, 249, 251)));
+			estiloNegIzq10NB.setFillForegroundColor(new XSSFColor( new Color(206, 238, 252)));
 			estiloNegIzq10NB.setFillPattern(CellStyle.SOLID_FOREGROUND);
 			
 			
@@ -164,7 +164,7 @@ public class DiccionarioDatosServicio extends BaseServicio{
 				fila = hoja.createRow(numfila);
 				celdaR= fila.createCell((short)0);			
 				celdaR.setCellStyle(estiloNegIzq10);
-				celdaR.setCellValue("Tabla: ");
+				celdaR.setCellValue("Nombre Tabla: ");
 	
 				celdaR= fila.createCell((short)1);		
 				celdaR.setCellStyle(estiloNegIzq10);
@@ -173,7 +173,7 @@ public class DiccionarioDatosServicio extends BaseServicio{
 						numfila, //first row (0-based)
 						numfila, //last row  (0-based)
 			            1, //first column (0-based)
-			            7  //last column  (0-based)
+			            8  //last column  (0-based)
 			    ));
 				
 				numfila++;
@@ -191,7 +191,7 @@ public class DiccionarioDatosServicio extends BaseServicio{
 						numfila, //first row (0-based)
 						numfila, //last row  (0-based)
 			            1, //first column (0-based)
-			            7  //last column  (0-based)
+			            8  //last column  (0-based)
 			    ));
 				
 				
@@ -210,28 +210,32 @@ public class DiccionarioDatosServicio extends BaseServicio{
 				celdaR= fila.createCell((short)1);	
 				celdaR.setCellStyle(estiloNegCentrado10Celda);
 				celdaR.setCellValue("Tipo");
-
+				
 				celdaR= fila.createCell((short)2);	
+				celdaR.setCellStyle(estiloNegCentrado10Celda);
+				celdaR.setCellValue("Longitud");
+
+				celdaR= fila.createCell((short)3);	
 				celdaR.setCellStyle(estiloNegCentrado10Celda);
 				celdaR.setCellValue("Nulo");
 				
-				celdaR= fila.createCell((short)3);	
-				celdaR.setCellStyle(estiloNegCentrado10Celda);
-				celdaR.setCellValue("PK");
-				
 				celdaR= fila.createCell((short)4);	
 				celdaR.setCellStyle(estiloNegCentrado10Celda);
-				celdaR.setCellValue("FK");
+				celdaR.setCellValue("Llave\nPrimaria");
 				
 				celdaR= fila.createCell((short)5);	
 				celdaR.setCellStyle(estiloNegCentrado10Celda);
-				celdaR.setCellValue("UQ");
+				celdaR.setCellValue("Llave\nForánea");
 				
 				celdaR= fila.createCell((short)6);	
 				celdaR.setCellStyle(estiloNegCentrado10Celda);
-				celdaR.setCellValue("Default");
+				celdaR.setCellValue("Unico");
 				
 				celdaR= fila.createCell((short)7);	
+				celdaR.setCellStyle(estiloNegCentrado10Celda);
+				celdaR.setCellValue("Valor por\ndefecto");
+				
+				celdaR= fila.createCell((short)8);	
 				celdaR.setCellStyle(estiloNegCentrado10Celda);
 				celdaR.setCellValue("Comentario");
 
@@ -249,29 +253,34 @@ public class DiccionarioDatosServicio extends BaseServicio{
 					
 					celdaR= fila.createCell((short)1);	
 					celdaR.setCellStyle(estilo10Celda);
-					celdaR.setCellValue(colbean.getTipoDato());
-
+					celdaR.setCellValue(colbean.getDato());
+					
 					celdaR= fila.createCell((short)2);	
+					celdaR.setCellStyle(estilo10Celda);
+					celdaR.setCellValue(colbean.getLongitud());
+
+
+					celdaR= fila.createCell((short)3);	
 					celdaR.setCellStyle(estilo10Celda);
 					celdaR.setCellValue(colbean.getIsNull());
 					
-					celdaR= fila.createCell((short)3);	
+					celdaR= fila.createCell((short)4);	
 					celdaR.setCellStyle(estilo10Celda);
 					celdaR.setCellValue(colbean.getPrimaryKey());
 					
-					celdaR= fila.createCell((short)4);	
+					celdaR= fila.createCell((short)5);	
 					celdaR.setCellStyle(estilo10Celda);
 					celdaR.setCellValue(colbean.getForeignKey());
 					
-					celdaR= fila.createCell((short)5);	
+					celdaR= fila.createCell((short)6);	
 					celdaR.setCellStyle(estilo10Celda);
 					celdaR.setCellValue(colbean.getUniqueKey());
 					
-					celdaR= fila.createCell((short)6);	
+					celdaR= fila.createCell((short)7);	
 					celdaR.setCellStyle(estilo10Celda);
 					celdaR.setCellValue(colbean.getDefaultVal());
 					
-					celdaR= fila.createCell((short)7);	
+					celdaR= fila.createCell((short)8);	
 					celdaR.setCellStyle(estilo10Celda);
 					celdaR.setCellValue(colbean.getComentario());
 					
@@ -285,9 +294,17 @@ public class DiccionarioDatosServicio extends BaseServicio{
 				}*/
 			} 
 			
+			hoja.setColumnWidth(0, 18 * 256);	
+			hoja.setColumnWidth(1, 15 * 256);	
+			hoja.setColumnWidth(2, 10 * 256);	
+			hoja.setColumnWidth(3, 9 * 256);	
+			hoja.setColumnWidth(4, 9 * 256);	
+			hoja.setColumnWidth(5, 9 * 256);
+			hoja.setColumnWidth(6, 9 * 256);
+			hoja.setColumnWidth(7, 15 * 256);	
+			hoja.setColumnWidth(8, 60 * 256);	
 
 
-		
 			
 			File archivo = new File("SAFI_Diccionario_Datos.xlsx");
 			FileOutputStream salida = new FileOutputStream(archivo);
